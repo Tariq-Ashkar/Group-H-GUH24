@@ -1,11 +1,11 @@
 import OpenAI from "openai";
 import dotenv from "dotenv";
-//import coords from '/script.js'; 
+import coords from '/script.js'; 
 
 dotenv.config();
 
-//const openai = new OpenAI({
-    //apiKey: 'mktQpsH4HTId447QBQGCh4jmzqdiyzaD-Lk-hudqrQbinAEXD8tlcRAO9kA'});
+const openai = new OpenAI({
+    apiKey: 'sk-svcacct-cNpEjHaToqE8f1_oq5mtOav-MW58kAAPPnY2lzO3W3FdX1lTM4-B88AF-DU36xuVT3BlbkFJiYStWmktQpsH4HTId447QBQGCh4jmzqdiyzaD-Lk-hudqrQbinAEXD8tlcRAO9kA'});
 
 async function test() {
     try {
@@ -15,7 +15,7 @@ async function test() {
                 { role: "system", content: "You are a helpful assistant." },
                 {
                     role: "user",
-                    content: "Research and provide accurate historical details about the events, notable activities, or cultural significance of the location at coordinates (-3.725709, -64.295352) around the year 750. Include relevant historical context and any major occurrences or developments that shaped the area during that time",
+                    content: "Research and provide accurate historical details about the events, notable activities, or cultural significance of the location at coordinates" + coords +"around the year 750. Include relevant historical context and any major occurrences or developments that shaped the area during that time",
                 },
             ],
         });

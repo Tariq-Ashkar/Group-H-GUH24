@@ -8,6 +8,7 @@ let marker;
 let geocoder;
 let responseDiv;
 let response;
+let coords;
 
 function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
@@ -66,13 +67,13 @@ function initMap() {
     clear();
   });
   clear();
-//}
+}
 
 function clear() {
   marker.setMap(null);
 }
 
-//function geocode(request) {
+function geocode(request) {
 clear();
 geocoder
 .geocode(request)
@@ -100,6 +101,7 @@ document.getElementById("map-loc").innerHTML =`<p>${location.lng()}</p>`
                                               + (city === "" ?"N/A":`<p>City: ${city}</p>`)
                                               + (country === ""?"N/A":`<p>Country: ${country}`);
 
+coords = `( ${location.lat()}, ${location.lng()})`;
 
 
 // Log results
@@ -118,5 +120,7 @@ marker.setMap(map);
 alert("Geocode was not successful for the following reason: " + e);
 });
 }
+
+module.exports = {coords};
 
 window.initMap = initMap;
