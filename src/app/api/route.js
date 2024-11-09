@@ -1,5 +1,7 @@
 import OpenAI from "openai";
 import dotenv from "dotenv";
+//import coords from '/script.js'; 
+
 dotenv.config();
 
 const openai = new OpenAI({
@@ -7,15 +9,29 @@ const openai = new OpenAI({
 
 async function test() {
     try {
-        const response = await openai.images.generate({
+        const responseText = await openai.chat.completions.create({
+            model: "gpt-4o",
+            messages: [
+                { role: "system", content: "You are a helpful assistant." },
+                {
+                    role: "user",
+                    content: "Research and provide accurate historical details about the events, notable activities, or cultural significance of the location at coordinates (-3.725709, -64.295352) around the year 750. Include relevant historical context and any major occurrences or developments that shaped the area during that time",
+                },
+            ],
+        });
+        // Extract the response text as a pure string
+        const responseT = responseText.choices[0]?.message?.content || "";
+
+        const responseImage = await openai.images.generate({
             model: 'dall-e-3',
-            prompt: 'Generate an image of a specific location at the exact coordinates of (51.50598631825097, -0.0755937039726398) during the year 1856. The scene should reflect the historical, environmental, and architectural characteristics of that time and place. Include notable features of the landscape, cityscape, or natural surroundings, considering factors such as weather, lighting, and seasonal elements that would have been present during that period. The image should provide a vivid and accurate portrayal of the setting, capturing its atmosphere and essence.',
-            n: 1,
+            prompt: responseT,
             size: '1024x1024',
         });
-        console.log(response.data);
+        console.log(responseImage.data);
+        console.log(responseT);
     } catch (error) {
-        console.error('Error:', error.response ? error.response.data : error.message);
+        console.error('Error:', error.responseImage ? error.responseImage.data : error.message);
+        console.error('Error:', error.responseText ? error.responseText.data : error.message);
     }
 }
 
