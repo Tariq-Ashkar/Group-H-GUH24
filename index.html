@@ -51,17 +51,17 @@
         // responseDiv.id = "response-container";
         // responseDiv.appendChild(response);
 
-        const instructionsElement = document.createElement("p");
+        // const instructionsElement = document.createElement("p");
 
-        instructionsElement.id = "instructions";
-        instructionsElement.innerHTML =
-          "<strong>Instructions</strong>: Enter an address in the textbox to geocode or click on the map to reverse geocode.";
-        map.controls[google.maps.ControlPosition.TOP_LEFT].push(inputText);
-        map.controls[google.maps.ControlPosition.TOP_LEFT].push(submitButton);
-        map.controls[google.maps.ControlPosition.TOP_LEFT].push(clearButton);
-        map.controls[google.maps.ControlPosition.LEFT_TOP].push(
-          instructionsElement
-        );
+        // instructionsElement.id = "instructions";
+        // instructionsElement.innerHTML =
+        //   "<strong>Instructions</strong>: Enter an address in the textbox to geocode or click on the map to reverse geocode.";
+        // map.controls[google.maps.ControlPosition.TOP_LEFT].push(inputText);
+        // map.controls[google.maps.ControlPosition.TOP_LEFT].push(submitButton);
+        // map.controls[google.maps.ControlPosition.TOP_LEFT].push(clearButton);
+        // map.controls[google.maps.ControlPosition.LEFT_TOP].push(
+        //   instructionsElement
+        // );
         map.controls[google.maps.ControlPosition.LEFT_TOP].push(responseDiv);
         marker = new google.maps.Marker({
           map,
