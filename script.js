@@ -11,8 +11,8 @@ let response;
 
 function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 8,
-    center: { lat: -34.397, lng: 150.644 },
+    zoom: 15,
+    center: { lat: 53.4687492, lng: -2.2327022 },
     mapTypeControl: false,
     streetViewControl: false, // Disable Street View control
   });

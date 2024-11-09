@@ -7,10 +7,51 @@
        * Always set the map height explicitly to define the size of the div element
        * that contains the map. 
        */
-       #map {
-        height: 100%;
+      
+      #map {
+        display: inline-block;
+        border-radius: 3em;
+        margin: 1em;
+        vertical-align: top;
+        height:23em;
+        width: 40em;
       }
 
+      #output{
+        background-color: red;
+        width:48em;
+        margin-left: 1em;
+        margin-top: 1em;
+        margin-bottom: 1em;
+        margin-right: 1em;
+        vertical-align: top;
+        height: 43em;
+        display: inline-block;
+      }
+
+      #imgoutput{
+        background-color: blue;
+        width:45em;
+        margin-left: 1.5em;
+        margin-top: 1em;
+        margin-bottom: 1em;
+        margin-right: 1em;
+        vertical-align: top;
+        height: 21em;
+        display: inline-block;
+      }
+
+      #txtoutput{
+        background-color: yellow;
+        width:45em;
+        margin-left: 1.5em;
+        margin-top: 1em;
+        margin-bottom: 1em;
+        margin-right: 1em;
+        vertical-align: top;
+        height: 16em;
+        display: inline-block;
+      }
       /* Optional: Makes the sample page fill the window. */
       html,
       body {
