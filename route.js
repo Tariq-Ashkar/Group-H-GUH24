@@ -1,6 +1,6 @@
 import OpenAI from "openai";
 import dotenv from "dotenv";
-import coords from '/script.js'; 
+import coords from './script.js'; 
 
 dotenv.config();
 
