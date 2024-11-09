@@ -17,10 +17,16 @@
         <div id="container">
           <div id="map"></div>
             <div id="map-info">
-                <div id="map-loc"></div>
+                <div id="map-loc">
+                  <p>Latitude: </p>
+                  <p>Longitude: </p>
+                  <p>City: </p>
+                  <p>Country: </p>
+                </div>
+                
                 <div id="map-year">
                 <form onsubmit="">
-                <p>Year: <input type="number" step={1} max={}></input></p>
+                <p>Year: <input type="number" placeholder=1900 step={1} max={}></input></p>
                 <button title="Travel through time" onclick="">Travel Through Time  </button>
                 </form>
                 </div>
