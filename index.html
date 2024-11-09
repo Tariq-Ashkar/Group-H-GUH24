@@ -89,19 +89,36 @@
     .then((result) => {
       const { results } = result;
       const location = results[0].geometry.location;
+      const addressComponents = results[0].address_components;
 
+      // Extract city and country
+      let city = "";
+      let country = "";
+
+      addressComponents.forEach(component => {
+        if (component.types.includes("locality")) {
+          city = component.long_name;
+        }
+        if (component.types.includes("country")) {
+          country = component.long_name;
+        }
+      });
+
+      // Log results
       console.log(`Latitude: ${location.lat()}, Longitude: ${location.lng()}`);
+      console.log(`City: ${city}, Country: ${country}`);
 
+      // Update map and response
       map.setCenter(location);
       marker.setPosition(location);
       marker.setMap(map);
       response.innerText = JSON.stringify(result, null, 2);
-      return results;
     })
     .catch((e) => {
       alert("Geocode was not successful for the following reason: " + e);
     });
 }
+
 
 
       window.initMap = initMap;
