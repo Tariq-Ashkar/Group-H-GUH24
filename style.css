@@ -17,6 +17,15 @@
         width: 40em;
       }
 
+      #container{
+        display: inline-block;
+        border-radius: 3em;
+        margin: 1em;
+        vertical-align: top;
+        height:23em;
+        width: 40em;
+      }
+
       #output{
         background-color: red;
         width:48em;
