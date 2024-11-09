@@ -9,7 +9,7 @@ let geocoder;
 let responseDiv;
 let response;
 
-function initMap() {
+//function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
     zoom: 15,
     center: { lat: 53.4687492, lng: -2.2327022 },
@@ -66,13 +66,13 @@ function initMap() {
     clear();
   });
   clear();
-}
+//}
 
 function clear() {
   marker.setMap(null);
 }
 
-function geocode(request) {
+//function geocode(request) {
 clear();
 geocoder
 .geocode(request)
@@ -116,7 +116,7 @@ marker.setMap(map);
 .catch((e) => {
 alert("Geocode was not successful for the following reason: " + e);
 });
-}
+//}
 
 
 
