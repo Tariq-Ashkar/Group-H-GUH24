@@ -27,7 +27,7 @@
           mapTypeControl: false,
         });
         geocoder = new google.maps.Geocoder();
-
+        
         const inputText = document.createElement("input");
 
         inputText.type = "text";
@@ -44,12 +44,12 @@
         clearButton.type = "button";
         clearButton.value = "Clear";
         clearButton.classList.add("button", "button-secondary");
-        response = document.createElement("pre");
-        response.id = "response";
-        response.innerText = "";
-        responseDiv = document.createElement("div");
-        responseDiv.id = "response-container";
-        responseDiv.appendChild(response);
+        // response = document.createElement("pre");
+        // response.id = "response";
+        // response.innerText = "";
+        // responseDiv = document.createElement("div");
+        // responseDiv.id = "response-container";
+        // responseDiv.appendChild(response);
 
         const instructionsElement = document.createElement("p");
 
