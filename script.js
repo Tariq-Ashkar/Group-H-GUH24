@@ -11,8 +11,8 @@ let response;
 
 function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 8,
-    center: { lat: -34.397, lng: 150.644 },
+    zoom: 15,
+    center: { lat: 53.4687492, lng: -2.2327022 },
     mapTypeControl: false,
     streetViewControl: false, // Disable Street View control
   });
@@ -66,13 +66,13 @@ function initMap() {
     clear();
   });
   clear();
-}
+//}
 
 function clear() {
   marker.setMap(null);
 }
 
-function geocode(request) {
+//function geocode(request) {
 clear();
 geocoder
 .geocode(request)
@@ -94,9 +94,19 @@ addressComponents.forEach(component => {
   }
 });
 
+
+document.getElementById("map-loc").innerHTML =`<p>${location.lng()}</p>`
+                                              +`<p>Longitude: ${location.lng()}</p>`
+                                              + (city === "" ?"N/A":`<p>City: ${city}</p>`)
+                                              + (country === ""?"N/A":`<p>Country: ${country}`);
+
+
+
 // Log results
 console.log(`Latitude: ${location.lat()}, Longitude: ${location.lng()}`);
 console.log(`City: ${city}, Country: ${country}`);
+
+
 
 // Update map and response
 map.setCenter(location);

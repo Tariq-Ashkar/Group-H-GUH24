@@ -12,7 +12,33 @@
     <script src="script.js"></script>
   </head>
   <body>
-    <div id="map"></div>
+    <div id='parent'>
+
+        <div id="container">
+          <div id="map"></div>
+            <div id="map-info">
+                <div id="map-loc">
+                  <p>Latitude: Selct a location</p>
+                  <p>Longitude: Selct a location</p>
+                  <p>City: Selct a location</p>
+                  <p>Country: Selct a location</p>
+                </div>
+                
+                <div id="map-year">
+                <form onsubmit="">
+                <p>Year: <input type="number" placeholder=1900 step={1} min="{1}" max={9000}></input></p>
+                <button title="Travel through time" onclick="">Travel Through Time  </button>
+                </form>
+                </div>
+            </div>
+        </div>
+          
+
+        <div id="output">
+            <div id="imgoutput"><img src="https://placehold.co/720x350" ></div>
+            <div id="txtoutput">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Alias, quidem molestiae! Omnis repellat consequuntur ut veniam voluptatibus consequatur dignissimos aperiam, fugit nobis, rem unde magnam voluptatum quibusdam inventore! Exercitationem, nostrum.</div>
+        </div>
+    </div>
     <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB55S6TN0wmOxaKDHdu2U99ShTUo_sLf0g&callback=initMap&v=weekly&solution_channel=GMP_CCS_geocodingservice_v2"
       defer
