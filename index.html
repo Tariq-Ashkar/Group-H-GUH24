@@ -28,10 +28,10 @@
         });
         geocoder = new google.maps.Geocoder();
         
-        const inputText = document.createElement("input");
+        // const inputText = document.createElement("input");
 
-        inputText.type = "text";
-        inputText.placeholder = "Enter a location";
+        // inputText.type = "text";
+        // inputText.placeholder = "Enter a location";
 
         const submitButton = document.createElement("input");
 
@@ -112,7 +112,7 @@
       map.setCenter(location);
       marker.setPosition(location);
       marker.setMap(map);
-      response.innerText = JSON.stringify(result, null, 2);
+      // response.innerText = JSON.stringify(result, null, 2);
     })
     .catch((e) => {
       alert("Geocode was not successful for the following reason: " + e);
