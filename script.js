@@ -9,7 +9,7 @@ let geocoder;
 let responseDiv;
 let response;
 
-//function initMap() {
+function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
     zoom: 15,
     center: { lat: 53.4687492, lng: -2.2327022 },
@@ -94,10 +94,11 @@ addressComponents.forEach(component => {
   }
 });
 
-document.getElementById("map-loc").innerHTML =`<p>Latitude: ${location.lat()}</p>`
-                                                +`<p>Longitude: ${location.lng()}</p>`
-                                                +`<p>City: ${city}</p>`
-                                                +`<p>Country: ${country}`;
+
+document.getElementById("map-loc").innerHTML =`<p>${location.lng()}</p>`
+                                              +`<p>Longitude: ${location.lng()}</p>`
+                                              + (city === "" ?"N/A":`<p>City: ${city}</p>`)
+                                              + (country === ""?"N/A":`<p>Country: ${country}`);
 
 
 
@@ -116,6 +117,6 @@ marker.setMap(map);
 .catch((e) => {
 alert("Geocode was not successful for the following reason: " + e);
 });
-//}
+}
 
 window.initMap = initMap;

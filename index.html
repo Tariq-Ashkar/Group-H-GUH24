@@ -18,16 +18,16 @@
           <div id="map"></div>
             <div id="map-info">
                 <div id="map-loc">
-                  <p>Latitude: </p>
-                  <p>Longitude: </p>
-                  <p>City: </p>
-                  <p>Country: </p>
+                  <p>Latitude: Selct a location</p>
+                  <p>Longitude: Selct a location</p>
+                  <p>City: Selct a location</p>
+                  <p>Country: Selct a location</p>
                 </div>
                 
                 <div id="map-year">
                 <form onsubmit="">
-                <p>Year: <input type="number" placeholder=1900 step={1} max={}></input></p>
-                <button id='submit-btn' title="Travel through time" onclick="">Travel Through Time  </button>
+                <p>Year: <input type="number" placeholder=1900 step={1} min="{1}" max={9000}></input></p>
+                <button title="Travel through time" onclick="">Travel Through Time  </button>
                 </form>
                 </div>
             </div>
