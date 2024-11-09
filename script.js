@@ -94,9 +94,18 @@ addressComponents.forEach(component => {
   }
 });
 
+document.getElementById("map-loc").innerHTML =`<p>Latitude: ${location.lat()}</p>`
+                                                +`<p>Longitude: ${location.lng()}</p>`
+                                                +`<p>City: ${city}</p>`
+                                                +`<p>Country: ${country}`;
+
+
+
 // Log results
 console.log(`Latitude: ${location.lat()}, Longitude: ${location.lng()}`);
 console.log(`City: ${city}, Country: ${country}`);
+
+
 
 // Update map and response
 map.setCenter(location);

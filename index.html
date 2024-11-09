@@ -13,7 +13,20 @@
   </head>
   <body>
     <div id='parent'>
-        <div id="map"></div>
+        <div id="container">
+          <div id="map"></div>
+        </div>
+          <div id="map-info">
+            <div id="map-loc">
+            </div>
+          <div id="map-year" >
+            <form onsubmit="">
+            <p>Year: <input type="number" step={1} max={}></input></p>
+            <button title="Travel through time" onclick="">Travel Through Time  </button>
+            </form>
+          </div>
+          </div>
+
         <div id="output">
             <div id="imgoutput"><img src="https://placehold.co/720x350" ></div>
             <div id="txtoutput">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Alias, quidem molestiae! Omnis repellat consequuntur ut veniam voluptatibus consequatur dignissimos aperiam, fugit nobis, rem unde magnam voluptatum quibusdam inventore! Exercitationem, nostrum.</div>
