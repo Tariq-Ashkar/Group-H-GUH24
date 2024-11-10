@@ -10,15 +10,28 @@
     <link href="style.css" rel="stylesheet">
     <title>GeoTime</title>
     <script src="script.js"></script>
-    <script>
-      
-      function Submit()
-      {
-        year = document.getElementById("year").value;
-        console.log(year);
-        test(year);
+    <script src="route.js"></script>
+    <script type="module">
+      async function Submit() {
+          const year = document.getElementById("year").value;
+          console.log(year);
+  
+          try {
+              const response = await fetch('/get-info', {
+                  method: 'POST',
+                  headers: {
+                      'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify({ year })
+              });
+  
+              const data = await response.json();
+              console.log(data.response);
+          } catch (error) {
+              console.error('Error:', error);
+          }
       }
-    </script>
+  </script>
   </head>
   <body>
     <div id='parent'>

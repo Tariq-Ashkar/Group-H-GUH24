@@ -1,13 +1,19 @@
-import OpenAI from "openai";
-import dotenv from "dotenv";
-import coords from './script.js'; 
+import express from 'express';
+import dotenv from 'dotenv';
+import OpenAI from 'openai';
+import coords from './script.js';
 
 dotenv.config();
 
 const openai = new OpenAI({
-    apiKey: 'sk-svcacct-cNpEjHaToqE8f1_oq5mtOav-MW58kAAPPnY2lzO3W3FdX1lTM4-B88AF-DU36xuVT3BlbkFJiYStWmktQpsH4HTId447QBQGCh4jmzqdiyzaD-Lk-hudqrQbinAEXD8tlcRAO9kA'});
+    apiKey: process.env.OPENAI_API_KEY, // Ensure this is securely stored
+});
 
-async function test() {
+const app = express();
+app.use(express.json());
+
+app.post('/get-info', async (req, res) => {
+    const { year } = req.body;
     try {
         const responseText = await openai.chat.completions.create({
             model: "gpt-4o",
@@ -15,25 +21,18 @@ async function test() {
                 { role: "system", content: "You are a helpful assistant." },
                 {
                     role: "user",
-                    content: "Research and provide accurate historical details about the events, notable activities, or cultural significance of the location at coordinates" + coords +"around the year 750. Include relevant historical context and any major occurrences or developments that shaped the area during that time",
+                    content: "Research and provide accurate historical details about the events, notable activities, or cultural significance of the location at coordinates " + coords + " around the year " + year + ". Include relevant historical context and any major occurrences or developments that shaped the area during that time.",
                 },
             ],
         });
-        // Extract the response text as a pure string
+
         const responseT = responseText.choices[0]?.message?.content || "";
-
-        const responseImage = await openai.images.generate({
-            model: 'dall-e-3',
-            prompt: responseT,
-            size: '1024x1024',
-        });
-        console.log(responseImage.data);
-        console.log(responseT);
+        res.json({ response: responseT });
     } catch (error) {
-        console.error('Error:', error.responseImage ? error.responseImage.data : error.message);
-        console.error('Error:', error.responseText ? error.responseText.data : error.message);
+        res.status(500).json({ error: error.message });
     }
-}
+});
 
-test();
-
+app.listen(3000, () => {
+    console.log('Server running on http://localhost:3000');
+});
