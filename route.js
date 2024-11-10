@@ -8,7 +8,7 @@ async function test(year) {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer sk-svcacct-cNpEjHaToqE8f1_oq5mtOav-MW58kAAPPnY2lzO3W3FdX1lTM4-B88AF-DU36xuVT3BlbkFJiYStWmktQpsH4HTId447QBQGCh4jmzqdiyzaD-Lk-hudqrQbinAEXD8tlcRAO9kA'
+                'Authorization': 'Bearer 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'
             },
             body: JSON.stringify({
                 model: "gpt-4",
@@ -30,7 +30,7 @@ async function test(year) {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer sk-svcacct-cNpEjHaToqE8f1_oq5mtOav-MW58kAAPPnY2lzO3W3FdX1lTM4-B88AF-DU36xuVT3BlbkFJiYStWmktQpsH4HTId447QBQGCh4jmzqdiyzaD-Lk-hudqrQbinAEXD8tlcRAO9kA'
+                'Authorization': 'Bearer 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'
             },
             body: JSON.stringify({
                 model: 'dall-e-3',
