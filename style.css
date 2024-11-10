@@ -87,6 +87,11 @@
         display: inline-block;
       }
 
+      #imgsource{
+        width: 720px;
+        height: 335px;
+      }
+
       #txtoutput{
         background-color: rgb(255, 231, 112);
         width:45em;

@@ -14,7 +14,7 @@ async function test(year) {
                     { role: "system", content: "You are a helpful assistant." },
                     {
                         role: "user",
-                        content: "Research and provide accurate historical details about the events, notable activities, or cultural significance of the location at coordinates " + coords + " around the year " + year + ". Include relevant historical context and any major occurrences or developments that shaped the area during that time."
+                        content: "Research and provide accurate historical details about the events, notable activities, or cultural significance of the location at coordinates " + coords + " around the year " + year + ". Include relevant historical context and any major occurrences or developments that shaped the area during that time. Limit the text to less than 150 words."
                     }
                 ]
             })
@@ -34,7 +34,7 @@ async function test(year) {
                 model: 'dall-e-3',
                 prompt: responseText,
                 n : 1,
-                size: '1024x1024'
+                size: '1792x1024'
             })
         });
 
