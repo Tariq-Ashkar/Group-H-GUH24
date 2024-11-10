@@ -2,6 +2,8 @@ import { coords } from './script.js';
 
 async function test(year) {
     try {
+        document.getElementById("imgsource").src = 'donut-code.gif';
+        document.getElementById("txtoutput").innerHTML = 'Travelling through the spacetime continuum...';
         const response = await fetch('https://api.openai.com/v1/chat/completions', {
             method: 'POST',
             headers: {
@@ -32,7 +34,7 @@ async function test(year) {
             },
             body: JSON.stringify({
                 model: 'dall-e-3',
-                prompt: responseText,
+                prompt: responseText + 'Dont include any text in the image',
                 n : 1,
                 size: '1792x1024'
             })
@@ -49,4 +51,6 @@ async function test(year) {
 
 export { test };
 
-test('1920');
+
+
+

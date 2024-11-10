@@ -96,10 +96,10 @@ addressComponents.forEach(component => {
 });
 
 
-document.getElementById("map-loc").innerHTML =`<p>${location.lng()}</p>`
+document.getElementById("map-loc").innerHTML =`<p>Latitude: ${location.lat()}</p>`
                                               +`<p>Longitude: ${location.lng()}</p>`
-                                              + (city === "" ?"N/A":`<p>City: ${city}</p>`)
-                                              + (country === ""?"N/A":`<p>Country: ${country}`);
+                                              + (city === "" ?"City: N/A":`<p>City: ${city}</p>`)
+                                              + (country === ""?"Country: N/A":`<p>Country: ${country}`);
 
 coords = `( ${location.lat()}, ${location.lng()})`;
 
