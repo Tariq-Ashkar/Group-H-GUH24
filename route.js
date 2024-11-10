@@ -24,22 +24,22 @@ async function test(year) {
         const responseText = responseData.choices[0]?.message?.content || "";
         console.log('Chat Response:', responseText);
 
-        const imageResponse = await fetch('https://api.openai.com/v1/images/generations', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': 'Bearer sk-svcacct-cNpEjHaToqE8f1_oq5mtOav-MW58kAAPPnY2lzO3W3FdX1lTM4-B88AF-DU36xuVT3BlbkFJiYStWmktQpsH4HTId447QBQGCh4jmzqdiyzaD-Lk-hudqrQbinAEXD8tlcRAO9kA'
-            },
-            body: JSON.stringify({
-                model: 'dall-e-3',
-                prompt: responseText,
-                size: '1024x1024'
-            })
-        });
+        // const imageResponse = await fetch('https://api.openai.com/v1/images/generations', {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //         'Authorization': 'Bearer sk-svcacct-cNpEjHaToqE8f1_oq5mtOav-MW58kAAPPnY2lzO3W3FdX1lTM4-B88AF-DU36xuVT3BlbkFJiYStWmktQpsH4HTId447QBQGCh4jmzqdiyzaD-Lk-hudqrQbinAEXD8tlcRAO9kA'
+        //     },
+        //     body: JSON.stringify({
+        //         model: 'dall-e-3',
+        //         prompt: responseText,
+        //         size: '1024x1024'
+        //     })
+        // });
 
-        const imageData = await imageResponse.json();
-        console.log('Generated Image Data:', imageData.data);
-
+        // const imageData = await imageResponse.json();
+        // console.log('Generated Image Data:', imageData.data);
+        document.getElementById("txtoutput").innerHTML = responseText;
     } catch (error) {
         console.error('Error:', error);
     }
