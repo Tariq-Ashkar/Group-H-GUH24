@@ -121,6 +121,6 @@ alert("Geocode was not successful for the following reason: " + e);
 });
 }
 
-module.exports = {coords};
+export { coords };
 
 window.initMap = initMap;

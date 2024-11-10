@@ -1,38 +1,50 @@
-import express from 'express';
-import dotenv from 'dotenv';
-import OpenAI from 'openai';
-import coords from './script.js';
+import { coords } from './script.js';
 
-dotenv.config();
-
-const openai = new OpenAI({
-    apiKey: process.env.OPENAI_API_KEY, // Ensure this is securely stored
-});
-
-const app = express();
-app.use(express.json());
-
-app.post('/get-info', async (req, res) => {
-    const { year } = req.body;
+async function test(year) {
     try {
-        const responseText = await openai.chat.completions.create({
-            model: "gpt-4o",
-            messages: [
-                { role: "system", content: "You are a helpful assistant." },
-                {
-                    role: "user",
-                    content: "Research and provide accurate historical details about the events, notable activities, or cultural significance of the location at coordinates " + coords + " around the year " + year + ". Include relevant historical context and any major occurrences or developments that shaped the area during that time.",
-                },
-            ],
+        const response = await fetch('https://api.openai.com/v1/chat/completions', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer sk-svcacct-cNpEjHaToqE8f1_oq5mtOav-MW58kAAPPnY2lzO3W3FdX1lTM4-B88AF-DU36xuVT3BlbkFJiYStWmktQpsH4HTId447QBQGCh4jmzqdiyzaD-Lk-hudqrQbinAEXD8tlcRAO9kA'
+            },
+            body: JSON.stringify({
+                model: "gpt-4",
+                messages: [
+                    { role: "system", content: "You are a helpful assistant." },
+                    {
+                        role: "user",
+                        content: "Research and provide accurate historical details about the events, notable activities, or cultural significance of the location at coordinates " + coords + " around the year " + year + ". Include relevant historical context and any major occurrences or developments that shaped the area during that time."
+                    }
+                ]
+            })
         });
 
-        const responseT = responseText.choices[0]?.message?.content || "";
-        res.json({ response: responseT });
-    } catch (error) {
-        res.status(500).json({ error: error.message });
-    }
-});
+        const responseData = await response.json();
+        const responseText = responseData.choices[0]?.message?.content || "";
+        console.log('Chat Response:', responseText);
 
-app.listen(3000, () => {
-    console.log('Server running on http://localhost:3000');
-});
+        const imageResponse = await fetch('https://api.openai.com/v1/images/generations', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer sk-svcacct-cNpEjHaToqE8f1_oq5mtOav-MW58kAAPPnY2lzO3W3FdX1lTM4-B88AF-DU36xuVT3BlbkFJiYStWmktQpsH4HTId447QBQGCh4jmzqdiyzaD-Lk-hudqrQbinAEXD8tlcRAO9kA'
+            },
+            body: JSON.stringify({
+                model: 'dall-e-3',
+                prompt: responseText,
+                size: '1024x1024'
+            })
+        });
+
+        const imageData = await imageResponse.json();
+        console.log('Generated Image Data:', imageData.data);
+
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+
+export { test };
+
+test('1920');
