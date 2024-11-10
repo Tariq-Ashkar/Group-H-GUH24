@@ -8,7 +8,7 @@ async function test(year) {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer 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'
+                'Authorization': 'Bearer API_KEY'
             },
             body: JSON.stringify({
                 model: "gpt-4",
@@ -30,7 +30,7 @@ async function test(year) {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer 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'
+                'Authorization': 'Bearer  API_KE'
             },
             body: JSON.stringify({
                 model: 'dall-e-3',
